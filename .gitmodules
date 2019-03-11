@@ -1,0 +1,6 @@
+[submodule "scripts"]
+	path = scripts
+	url = https://github.com/akerl/config-template
+[submodule "content"]
+	path = content
+	url = git@github.com:akerl/hf-library

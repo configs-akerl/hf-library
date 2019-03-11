@@ -1,0 +1,20 @@
+dist: trusty
+git:
+  submodules: false
+env:
+  global:
+  - BUCKET=akerl-hf-library-config
+  - CONTENT_BUCKET=akerl-hf-library
+  - AWS_DEFAULT_REGION=us-east-1
+before_install:
+- chmod 600 deploy_key
+- echo "IdentityFile deploy_key" >> ~/.ssh/config
+- git submodule update --init
+- scripts/deps.sh
+- go get github.com/akerl/madlibrarian
+script:
+- scripts/template.py config.yaml.j2 config.yaml
+- scripts/upload.sh config.yaml
+- "./upload_content.rb"
+notifications:
+  email: false
