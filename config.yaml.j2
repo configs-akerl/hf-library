@@ -2,7 +2,10 @@ signkey: {{ env['signkey'] }}
 enckey: {{ env['enckey'] }}
 slacktokens:
 - {{ env['dslack'] }}
+- {{ env['aslack'] }}
+- {{ env['hslack'] }}
 authurl: https://auth.coolquotes.xyz/auth
 acls:
   default:
+  - coolquotes/happyfriday
   - coolquotes/dcs
